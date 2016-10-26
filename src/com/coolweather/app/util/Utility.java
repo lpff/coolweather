@@ -1,5 +1,6 @@
 package com.coolweather.app.util;
 
+import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -98,6 +99,17 @@ public class Utility {
 			String temp2 = weatherInfo.getString("temp2");
 			String weatherDesp = weatherInfo.getString("weather");
 			String publishTime = weatherInfo.getString("ptime");
+			/*数据本来就是utf-8，不需要转换
+			try {
+	            cityName = new String(cityName.getBytes(),"utf-8");
+	            weatherCode = new String(weatherCode.getBytes(),"utf-8");
+	            temp1 = new String(temp1.getBytes(),"utf-8");
+	            temp2 = new String(temp2.getBytes(),"utf-8");
+	            weatherDesp = new String(weatherDesp.getBytes(),"utf-8");
+	            publishTime = new String(publishTime.getBytes(),"utf-8");
+	        } catch (UnsupportedEncodingException e) {
+	            e.printStackTrace();
+	        }*/
 			
 			saveWeatherInfo(context,cityName,weatherCode,temp1,temp2,weatherDesp,publishTime);
 		}catch(JSONException e){
